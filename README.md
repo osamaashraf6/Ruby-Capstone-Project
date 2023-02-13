@@ -1,19 +1,3 @@
-# curriculum-databases-projects-template
-
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
-
-
-## Getting Started
-
-This repository includes files with plain SQL that can be used to recreate a database:
-
-- Use [schema.sql](./schema.sql) to create all tables.
-- Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
-
-<a name="readme-top"></a>
-
 
 <!-- TABLE OF CONTENTS -->
 
@@ -41,16 +25,18 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Vet Clinic Database] <a name="about-project"></a>
+# 📖 [Ruby group capstone - Catalog of my things] <a name="about-project"></a>
 
-> In this project, I used a relational database to create the initial data structure for a vet clinic. I created a table to store animals' information, insert some data into it, and query it.
+> In this project, we created a console app that will help us to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files but we also prepared a database with tables structure analogical to your program's class structure.
 
 
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- [x] Database👌
-- [x] Postgresql
+- [x] Ruby👌
+- [x] OOP ruby
+- [x] Postgressql
+- [x] Rubocop linter
 
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -59,7 +45,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://reactjs.org/">Ruby</a></li>
   </ul>
 </details>
 
@@ -81,12 +67,10 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 
-
-- [ ] Created a database named vet_clinic.
-- [ ] Created a table named animals with corresponding columns upon the requirements💯
-- [ ] Inserted data of 4 animals with the corresponding name, date_of_birth, weight, neutered status, and escape attempts👌
+- [ ] Create Item class in a separate .rb file👌
+- [ ] Add All Item class properties visible in the diagram defined and set up in the constructor method💯
+- [ ] Implement methods:can_be_archived?() in the Item class👌
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,7 +88,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -128,8 +111,8 @@ Clone this repository to your desired folder:
 Example commands:
 
 ```sh
-  cd Vet-clinic-database
-  git clone https://github.com/osamaashraf6/Vet-clinic-database.git
+  git clone https://github.com/osamaashraf6/Ruby-Capstone-Project
+  cd Ruby-Capstone-Project
 ```
 
 
@@ -150,6 +133,13 @@ Example command:
 
 To run the project, execute the following command:
 
+```usage
+1. Open vscode 👌
+2. Open the terminal using ubuntu
+3. Run the project💯
+
+```
+
 <!--
 Example command:
 
@@ -162,6 +152,10 @@ Example command:
 
 To run tests, run the following command:
 
+```test
+  rspec ./spec/filename_spec.rb
+```
+
 <!--
 Example command:
 
@@ -172,7 +166,10 @@ Example command:
 
 ### Deployment
 
-You can deploy this project using:
+You can deploy this project using: 💯
+
+1. Netlify
+2. Render
 
 <!--
 Example:
@@ -195,13 +192,18 @@ Example:
 - Twitter: [Osama Ashraf](https://twitter.com/OsamaAshraf578?t=l75KjrhQgK4h-vSPfgk1gA&s=08)
 - LinkedIn: [Osama Ashraf](https://www.linkedin.com/in/osama-salem-2a046b203)
 
+<!--👤 **Author2** -->
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> I will create other tables at this project for the clinic💯
+> Create a Book class in a separate .rb file
+> Create a Label class with an association to the Item class (in a separate .rb file).💯
+> All Book class properties visible in the diagram will be defined and set up in the constructor method.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -243,9 +245,8 @@ I would like to thank Microverse for this opportunity.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/osamaashraf6/Vet-clinic-database/blob/dev/LICENCE) licensed.
+This project is [MIT](https://github.com/osamaashraf6/School-Library-OOP-Ruby/blob/classes__1/MIT.md) licensed.
 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-s
