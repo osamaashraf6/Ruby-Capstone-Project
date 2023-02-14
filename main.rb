@@ -17,10 +17,18 @@ class MainMenu
     $stdout.clear_screen
     puts 'Welcome to Catalog of my things'
     puts
-    puts 'Please choose an option by entering the number/letter:'
     @options.each do |key, value|
       puts "[#{key}] - #{value.gsub(/_/, ' ').capitalize!}"
     end
+  end
+
+  def choose_valid_option
+    loop do
+      print 'Please choose an option by entering the number/letter: '
+      @user_input = gets.chomp.to_s.upcase
+      break if @options.key?(@user_input)
+    end
+    @user_input
   end
 
   def exit_app
@@ -30,9 +38,9 @@ class MainMenu
 
   def main_menu
     show_options
-    user_input = gets.chomp.to_s.upcase
-    exit_app if user_input == 'X'
-    send(@options[user_input])
+    valid_input = choose_valid_option
+    exit_app if valid_input == 'X'
+    send(@options[valid_input])
   end
 end
 
