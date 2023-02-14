@@ -25,7 +25,7 @@ class MainMenu
   def choose_valid_option
     loop do
       print 'Please choose an option by entering the number/letter: '
-      @user_input = $stdin.gets.chomp.to_s.upcase
+      @user_input = STDIN.gets.chomp.to_s.upcase
       break if @options.key?(@user_input)
     end
     @user_input
