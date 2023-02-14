@@ -1,4 +1,4 @@
-require '../main'
+require_relative '.././main'
 
 describe 'main' do
   before :each do
