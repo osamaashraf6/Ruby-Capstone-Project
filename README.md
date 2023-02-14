@@ -187,12 +187,16 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author**
+👤 **Author1**
 - GitHub: [Osama Ashraf](https://github.com/osamaashraf6)
 - Twitter: [Osama Ashraf](https://twitter.com/OsamaAshraf578?t=l75KjrhQgK4h-vSPfgk1gA&s=08)
 - LinkedIn: [Osama Ashraf](https://www.linkedin.com/in/osama-salem-2a046b203)
 
-<!--👤 **Author2** -->
+👤 **Author2** 
+
+- GitHub: [@githubhandle](https://github.com/whiteWolfx99)
+- Twitter: [@twitterhandle](#)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/hevar-hoshang-9a7a68237/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
