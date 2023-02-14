@@ -198,6 +198,11 @@ Example:
 - Twitter: [@twitterhandle](#)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/hevar-hoshang-9a7a68237/)
 
+👤 **Author3** 
+- GitHub: [@lmunozm1702](https://github.com/lmunozm1702)
+- Email: [l.munoz.m@outlook.com](mailto:l.munoz.m@outlook.com)
+- Twitter: [@lmunozm1702](www.twitter.com/lmunozm1702)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
