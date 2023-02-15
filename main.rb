@@ -26,11 +26,11 @@ class MainMenu
     end
   end
 
-  def list_all_sources
-    pp @author_options
-    pp @game_options
-    select_new_option
-  end
+  # def list_all_sources
+  #   pp @author_options
+  #   pp @game_options
+  #   select_new_option
+  # end
 
   def list_of_games
     @game_options.list_of_games
