@@ -1,6 +1,6 @@
 require 'io/console'
 require_relative './author_options'
-
+require_relative './game_options'
 class MainMenu
   def initialize
     ### Create the method named in the value of the hash to ask for
@@ -13,6 +13,7 @@ class MainMenu
                  'M' => 'add_movie', 'G' => 'add_game', 'X' => 'exit_app' }
 
     @author_options = AuthorOptions.new
+    @game_options = GameOptions.new
   end
 
   def show_options
@@ -25,8 +26,25 @@ class MainMenu
     end
   end
 
+  # def list_all_sources
+  #   pp @author_options
+  #   pp @game_options
+  #   select_new_option
+  # end
+
+  def list_of_games
+    @game_options.list_of_games
+    select_new_option
+  end
+
   def list_all_authors
     @author_options.list_all_authors
+    select_new_option
+  end
+
+  def add_game
+    @game_options.add_game(@author_options)
+    select_new_option
   end
 
   def choose_valid_option
@@ -41,6 +59,13 @@ class MainMenu
   def exit_app
     puts 'Thank you for using the app!'
     exit(0)
+  end
+
+  def select_new_option
+    puts
+    puts '*** Press any key to reload the main menu ***'
+    $stdin.getc
+    main_menu
   end
 
   def main_menu
