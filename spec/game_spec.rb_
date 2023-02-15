@@ -1,8 +1,0 @@
-require 'rspec'
-require_relative '../game'
-
-describe Game do
-  before :each do
-    @book = Book.new
-  end
-end
