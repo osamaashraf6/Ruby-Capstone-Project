@@ -32,7 +32,7 @@ module LabelsController
     if @labels.empty?
       puts 'The Labels list is empty'
     else
-      puts '🏷️  Labels list:'
+      puts '  Labels list:'
       @labels.each_with_index do |label, index|
         puts "#{index + 1}-[Label] ID: #{label.id} | Name: #{label.name}"
       end
