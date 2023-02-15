@@ -1,4 +1,5 @@
 require 'io/console'
+require_relative './author_options'
 
 class MainMenu
   def initialize
@@ -10,6 +11,8 @@ class MainMenu
                  '7' => 'list_all_authors', '8' => 'list_all_sources',
                  'B' => 'add_book', 'A' => 'add_music_album',
                  'M' => 'add_movie', 'G' => 'add_game', 'X' => 'exit_app' }
+
+    @author_options = AuthorOptions.new
   end
 
   def show_options
@@ -22,10 +25,14 @@ class MainMenu
     end
   end
 
+  def list_all_authors
+    @author_options.list_all_authors
+  end
+
   def choose_valid_option
     loop do
       print 'Please choose an option by entering the number/letter: '
-      @user_input = STDIN.gets.chomp.to_s.upcase
+      @user_input = $stdin.gets.chomp.to_s.upcase
       break if @options.key?(@user_input)
     end
     @user_input
