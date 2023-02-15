@@ -37,11 +37,11 @@ module BooksController
     author_f = user_input("Author's first name: ")
     author_l = user_input("Author's last name: ")
     author = Author.new(author_f, author_l)
-    publish_date = user_input("Book\'s publish date: ")
-    publisher = user_input("Book\'s publisher: ")
-    cover_state = user_input("Book\'s cover state [good, bad]: ")
-    genre = Genre.new(user_input("Book\'s genre: "))
-    label = Label.new(user_input("Book\'s label: "))
+    publish_date = user_input("Book's publish date: ")
+    publisher = user_input("Book's publisher: ")
+    cover_state = user_input("Book's cover state [good, bad]: ")
+    genre = Genre.new(user_input("Book's genre: "))
+    label = Label.new(user_input("Book's label: "))
     new_book = Book.new(publish_date, publisher, cover_state)
     new_book.genre = genre
     new_book.label = label

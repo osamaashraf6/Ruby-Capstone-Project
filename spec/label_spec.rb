@@ -12,7 +12,7 @@ describe Label do
     expect(label.items).to contain_exactly(book)
   end
 
-  it "item\'s label should be set to current label\'s name" do
+  it "item's label should be set to current label's name" do
     label = Label.new('label')
     book = Book.new('20/10/2010', 'publisher', 'good')
     label.add_item(book)
