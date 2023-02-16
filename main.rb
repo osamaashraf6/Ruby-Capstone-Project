@@ -15,6 +15,8 @@ class MainMenu
 
     @author_options = AuthorOptions.new
     @game_options = GameOptions.new
+    @author_options.author_list = FileStorage.load_data('author')
+    @game_options.game_list = FileStorage.load_data('game')
   end
 
   def show_options

@@ -1,7 +1,7 @@
 require_relative './game'
 
 class GameOptions
-  attr_reader :game_list
+  attr_accessor :game_list
 
   def initialize
     @game_list = []
@@ -15,7 +15,7 @@ class GameOptions
     print 'Multiplayer [true/false]: '
     multiplayer = gets.chomp
 
-    new_game = Game.new(nil, multiplayer, publish_date, last_played_at)
+    new_game = Game.new(nil, multiplayer, publish_date, last_played_at, nil)
     author_options.select_author.add_item(new_game)
     @game_list.push(new_game)
     puts 'Game Added!'

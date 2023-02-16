@@ -14,14 +14,14 @@ class Author
   def to_json(*args)
     {
       JSON.create_id => self.class.name,
+      'id' => @id,
       'first_name' => @first_name,
-      'last_name' => @last_name,
-      'id' => @id
+      'last_name' => @last_name
     }.to_json(*args)
   end
 
   def self.json_create(object)
-    new(object['first_name'], object['last_name'], object['id'])
+    new(object['id'], object['first_name'], object['last_name'])
   end
 
   def add_item(item)
