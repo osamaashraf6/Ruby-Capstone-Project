@@ -5,7 +5,7 @@ require_relative '../author'
 describe Author do
   before :each do
     @author = Author.new(nil, 'Luis', 'Munoz')
-    @item = Item.new(nil, '17/02/2023', archived: true)
+    @item = Item.new(nil, '17/02/2023', @author, archived: true)
   end
 
   it 'takes three parameters and returns an Author object' do

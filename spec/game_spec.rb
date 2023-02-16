@@ -3,10 +3,10 @@ require_relative '../game'
 
 describe Game do
   before :each do
-    @game1 = Game.new(true, '17/02/1990', '17/05/2019')
-    @game2 = Game.new(true, '17/02/1990', '17/05/2022')
-    @game3 = Game.new(true, '17/02/2015', '17/05/2019')
-    @game4 = Game.new(true, '17/02/2015', '17/05/2022')
+    @game1 = Game.new(nil, true, '17/02/1990', '17/05/2019', nil)
+    @game2 = Game.new(nil, true, '17/02/1990', '17/05/2022', nil)
+    @game3 = Game.new(nil, true, '17/02/2015', '17/05/2019', nil)
+    @game4 = Game.new(nil, true, '17/02/2015', '17/05/2022', nil)
   end
 
   it 'takes three parameters and returns an Game object' do
