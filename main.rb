@@ -1,6 +1,7 @@
 require 'io/console'
 require_relative './author_options'
 require_relative './game_options'
+require_relative './file_storage'
 class MainMenu
   def initialize
     ### Create the method named in the value of the hash to ask for
@@ -58,6 +59,8 @@ class MainMenu
 
   def exit_app
     puts 'Thank you for using the app!'
+    FileStorage.save_data('game', @game_options.game_list)
+    FileStorage.save_data('author', @author_options.author_list)
     exit(0)
   end
 
