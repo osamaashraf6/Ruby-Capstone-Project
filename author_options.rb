@@ -23,9 +23,10 @@ class AuthorOptions
     first_name = gets.chomp
     print 'Last name: '
     last_name = gets.chomp
-    result = @author_list.push(Author.new(nil, first_name, last_name))
+    new_author = Author.new(nil, first_name, last_name)
+    @author_list.push(new_author)
     puts 'Author Added!'
-    result[0]
+    new_author
   end
 
   def select_author_with_id(value)
