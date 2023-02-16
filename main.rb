@@ -1,6 +1,8 @@
 require 'io/console'
 require_relative './author_options'
 require_relative './game_options'
+require_relative './genre_option'
+require_relative 'music_option'
 class MainMenu
   def initialize
     ### Create the method named in the value of the hash to ask for
@@ -14,6 +16,8 @@ class MainMenu
 
     @author_options = AuthorOptions.new
     @game_options = GameOptions.new
+    @genre_options = GenreLister.new
+    @music_options = MusicModule.new
   end
 
   def show_options
@@ -31,6 +35,16 @@ class MainMenu
   #   pp @game_options
   #   select_new_option
   # end
+
+  def list_all_genres
+    @genre_options.list_all_genres
+    select_new_option
+  end
+
+  def list_all_music_albums
+    @music_options.list_all_music_albums
+    select_new_option
+  end
 
   def list_of_games
     @game_options.list_of_games
