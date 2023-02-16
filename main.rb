@@ -1,6 +1,7 @@
 require 'io/console'
 require_relative './author_options'
 require_relative './game_options'
+require_relative './file_storage'
 require_relative './genre_option'
 require_relative 'music_option'
 class MainMenu
@@ -16,6 +17,8 @@ class MainMenu
 
     @author_options = AuthorOptions.new
     @game_options = GameOptions.new
+    @author_options.author_list = FileStorage.load_data('author')
+    @game_options.game_list = FileStorage.load_data('game')
     @genre_options = GenreLister.new
     @music_options = MusicModule.new
   end
@@ -72,6 +75,8 @@ class MainMenu
 
   def exit_app
     puts 'Thank you for using the app!'
+    FileStorage.save_data('game', @game_options.game_list)
+    FileStorage.save_data('author', @author_options.author_list)
     exit(0)
   end
 
