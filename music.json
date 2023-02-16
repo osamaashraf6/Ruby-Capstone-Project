@@ -1,0 +1,26 @@
+[
+  {
+    "json_class": "MusicAlbum",
+    "on_spotify": true,
+    "publish_date": "2022-05-03",
+    "genre": { "json_class": "Genre", "name": "action" }
+  },
+  {
+    "json_class": "MusicAlbum",
+    "on_spotify": false,
+    "publish_date": "2022-01-01",
+    "genre": { "json_class": "Genre", "name": "action" }
+  },
+  {
+    "json_class": "MusicAlbum",
+    "on_spotify": true,
+    "publish_date": "2022-01-01",
+    "genre": { "json_class": "Genre", "name": "action" }
+  },
+  {
+    "json_class": "MusicAlbum",
+    "on_spotify": false,
+    "publish_date": "2021-01-09",
+    "genre": { "json_class": "Genre", "name": "comedy" }
+  }
+]

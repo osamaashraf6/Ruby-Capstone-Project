@@ -1,14 +1,32 @@
 require_relative './item'
+require_relative './genre'
+require 'json'
 
 class MusicAlbum < Item
   attr_accessor :on_spotify, :publish_date
 
-  def initialize(on_spotify, publish_date, id: Random.rand(1..1000))
-    super(id, publish_date)
+  def initialize(on_spotify, publish_date)
+    super(publish_date)
     @on_spotify = on_spotify
   end
 
   def can_be_archived?
-    super && @on_spotify
+    super && @on_spotify == true
+  end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'on_spotify' => @on_spotify,
+      'publish_date' => @publish_date,
+      'genre' => @genre
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    music_album = new(object['on_spotify'], object['publish_date'])
+    genre = JSON.parse(JSON.generate(object['genre']), create_additions: true)
+    genre.add_item(music_album)
+    music_album
   end
 end

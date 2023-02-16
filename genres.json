@@ -1,0 +1,4 @@
+[
+  { "json_class": "Genre", "name": "action" },
+  { "json_class": "Genre", "name": "comedy" }
+]

@@ -3,7 +3,7 @@ require_relative './author_options'
 require_relative './game_options'
 require_relative './file_storage'
 require_relative './genre_option'
-require_relative 'music_option'
+require_relative './music_option'
 class MainMenu
   def initialize
     ### Create the method named in the value of the hash to ask for
@@ -17,10 +17,12 @@ class MainMenu
 
     @author_options = AuthorOptions.new
     @game_options = GameOptions.new
+    @genre_options = GenreLister.new
+    @music_options = MusicAlbum.new(true, '2022-01-01')
     @author_options.author_list = FileStorage.load_data('author')
     @game_options.game_list = FileStorage.load_data('game')
-    @genre_options = GenreLister.new
-    @music_options = MusicModule.new
+    @genre_options.list_all_genres = FileStorage.load_data('genre')
+    @music_options.list_all_music_albums = FileStorage.load_data('music')
   end
 
   def show_options
@@ -75,6 +77,8 @@ class MainMenu
 
   def exit_app
     puts 'Thank you for using the app!'
+    FileStorage.save_data('genres', @genres.GenreLister)
+    FileStorage.save_data('music_albums', @music_albums.MusicAlbum)
     FileStorage.save_data('game', @game_options.game_list)
     FileStorage.save_data('author', @author_options.author_list)
     exit(0)
