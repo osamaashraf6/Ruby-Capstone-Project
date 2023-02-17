@@ -1,10 +1,11 @@
 require_relative './item'
 
 class Book < Item
-  def initialize(id, publisher, publish_date, cover_state, author)
+  def initialize(id, publisher, publish_date, cover_state, label)
     super(id, publish_date, author)
     @publisher = publisher
     @cover_state = cover_state
+    @label = label
   end
 
   def can_be_archived?
@@ -18,12 +19,12 @@ class Book < Item
       'publisher' => @publisher,
       'publish_date' => @publish_date,
       'cover_state' => @cover_state,
-      'author' => @author
+      'label' => @label
     }.to_json(*args)
   end
 
   def self.json_create(object)
-    new(object['id'], object['publisher'], object['publish_date'], object['cover_state'], object['author'])
+    new(object['id'], object['publisher'], object['publish_date'], object['cover_state'], object['label'])
   end
 end
 

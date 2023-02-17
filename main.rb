@@ -27,6 +27,8 @@ class MainMenu
     @game_options.game_list = FileStorage.load_data('game')
     @genre_options.genres = FileStorage.load_data('genres')
     @music_options.music_albums = FileStorage.load_data('music_albums')
+    @book_options.book_list = FileStorage.load_data('book')
+    @label_options.label_list = FileStorage.load_data('label')
   end
 
   def show_options
@@ -109,6 +111,8 @@ class MainMenu
     FileStorage.save_data('music_albums', @music_options.music_albums)
     FileStorage.save_data('game', @game_options.game_list)
     FileStorage.save_data('author', @author_options.author_list)
+    FileStorage.save_data('book', @book_options.book_list)
+    FileStorage.save_data('label', @label_options.label_list)
     exit(0)
   end
 
