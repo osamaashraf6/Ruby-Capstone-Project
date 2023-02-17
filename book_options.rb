@@ -28,7 +28,7 @@ class BookOptions
     else
       @book_list.each do |book|
         ## puts "[#{book.id}] - **LABEL** - **GENRE** - Author: #{book.author.first_name} #{book.author.last_name}"
-        puts "[#{book.id}] - **LABEL** - **GENRE** - **AUTHOR**"
+        puts "[#{book.id}] - Label: #{book.label.title} #{book.label.color} - **GENRE** - **AUTHOR**"
       end
     end
   end

@@ -1,4 +1,1 @@
-[
-  { "json_class": "Genre", "id": 506, "name": "action" },
-  { "json_class": "Genre", "id": 586, "name": "folk" }
-]
+[{"json_class":"Genre","id":506,"name":"action"},{"json_class":"Genre","id":586,"name":"folk"}]
