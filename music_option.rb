@@ -3,22 +3,22 @@ require_relative './genre'
 require_relative './genre_option'
 
 class MusicOption
+  attr_accessor :music_albums
+
   def initialize
     @music_albums = []
-    @genre_lister = GenreLister.new
   end
 
-  def add_a_music_album
+  def add_a_music_album(genre_options)
     print 'Is it on spotify? [y/n] : '
     on_spotify = gets.chomp.to_s.downcase == 'y'
     print 'Please enter the published date [Enter date in format (yyyy-mm-dd)] : '
     published_date = gets.chomp.to_s
 
-    genre = @genre_lister.add_genre
-    music_album = MusicAlbum.new(on_spotify, published_date, genre)
-    @music_albums << music_album
+    genre = genre_options.add_genre
 
-    genre.add_item(music_album)
+    music_album = MusicAlbum.new(nil, on_spotify, published_date, genre, nil)
+    genre_options.select_genre.add_item(music_album)
 
     puts "Album of genre '#{genre.name}' and publish date '#{published_date}' added successfully!"
   end

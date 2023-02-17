@@ -22,7 +22,7 @@ class MainMenu
     @author_options.author_list = FileStorage.load_data('author')
     @game_options.game_list = FileStorage.load_data('game')
     @genre_options.list_all_genres = FileStorage.load_data('genre')
-    @music_options.list_all_music_albums = FileStorage.load_data('music')
+    @music_options.music_albums = FileStorage.load_data('music')
   end
 
   def show_options
@@ -46,7 +46,7 @@ class MainMenu
     select_new_option
   end
 
-  def list_all_music_albums
+  def list_music_albums
     @music_options.list_all_music_albums
     select_new_option
   end
@@ -58,6 +58,11 @@ class MainMenu
 
   def list_all_authors
     @author_options.list_all_authors
+    select_new_option
+  end
+
+  def add_music_album
+    @music_options.add_a_music_album(@genre_options)
     select_new_option
   end
 
@@ -77,8 +82,8 @@ class MainMenu
 
   def exit_app
     puts 'Thank you for using the app!'
-    FileStorage.save_data('genres', @genres.GenreLister)
-    FileStorage.save_data('music_albums', @music_albums.MusicAlbum)
+    FileStorage.save_data('genres', @genre_options.genres)
+    FileStorage.save_data('music_albums', @music_options.music_albums)
     FileStorage.save_data('game', @game_options.game_list)
     FileStorage.save_data('author', @author_options.author_list)
     exit(0)
