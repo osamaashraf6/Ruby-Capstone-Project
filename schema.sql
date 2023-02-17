@@ -27,6 +27,18 @@ CREATE INDEX item_label_id_asc ON item (label_id ASC);
 
 DROP TABLE IF EXISTS author;
 
+CREATE TABLE genre(
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE music_album (
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  on_spotify BOOLEAN,
+  publish_date DATE,
+  genre_id INTEGER REFERENCES genre(id)
+);
+
 CREATE TABLE
     author (
         id SERIAL PRIMARY KEY,
@@ -48,3 +60,23 @@ CREATE TABLE
 DROP INDEX IF EXISTS game_item_id_asc;
 
 CREATE INDEX game_item_id_asc ON item (item_id ASC);
+
+CREATE TABLE books(
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  publish_date DATE NOT NULL,
+  archived BOOLEAN NOT NULL,
+  publisher VARCHAR(30) NOT NULL,
+  cover_state VARCHAR(10) NOT NULL,
+  label_ID INTEGER,
+  author_ID INTEGER,
+  genre_ID INTEGER,
+  CONSTRAINT fk_label FOREIGN KEY (label_ID) REFERENCES label(ID),
+  CONSTRAINT fk_author FOREIGN KEY (author_ID) REFERENCES author(ID),
+  CONSTRAINT fk_genre FOREIGN KEY (genre_ID) REFERENCES genre(ID)
+);
+
+CREATE TABLE label(
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(50) NOT NULL,
+  color VARCHAR(50) NOT NULL
+);
