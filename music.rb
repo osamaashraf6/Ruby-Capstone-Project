@@ -3,11 +3,12 @@ require_relative './genre'
 require 'json'
 
 class MusicAlbum < Item
-  attr_accessor :on_spotify, :publish_date
+  attr_accessor :on_spotify, :publish_date, :genre
 
-  def initialize(on_spotify, publish_date)
+  def initialize(on_spotify, publish_date, genre)
     super(publish_date)
     @on_spotify = on_spotify
+    @genre = genre
   end
 
   def can_be_archived?
@@ -24,7 +25,7 @@ class MusicAlbum < Item
   end
 
   def self.json_create(object)
-    music_album = new(object['on_spotify'], object['publish_date'])
+    music_album = new(object['on_spotify'], object['publish_date'], object['genre'])
     genre = JSON.parse(JSON.generate(object['genre']), create_additions: true)
     genre.add_item(music_album)
     music_album

@@ -1,6 +1,8 @@
 require_relative './genre'
 
 class GenreLister
+  attr_writer :list_all_genres
+
   def initialize
     @genres = []
   end

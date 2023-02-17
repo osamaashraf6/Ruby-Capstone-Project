@@ -18,7 +18,7 @@ class MainMenu
     @author_options = AuthorOptions.new
     @game_options = GameOptions.new
     @genre_options = GenreLister.new
-    @music_options = MusicAlbum.new(true, '2022-01-01')
+    @music_options = MusicOption.new
     @author_options.author_list = FileStorage.load_data('author')
     @game_options.game_list = FileStorage.load_data('game')
     @genre_options.list_all_genres = FileStorage.load_data('genre')
