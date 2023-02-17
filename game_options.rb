@@ -7,7 +7,14 @@ class GameOptions
     @game_list = []
   end
 
-  def add_game(author_options)
+  def add_game_relations(author_options, genre_options, new_game)
+    # add author relation to book
+    author_options.select_author.add_item(new_game)
+    # add genre relation to book
+    genre_options.add_genre.add_item(new_game)
+  end
+
+  def add_game(author_options, genre_options)
     print 'Publish date: '
     publish_date = gets.chomp
     print 'Last played at: '
@@ -16,7 +23,9 @@ class GameOptions
     multiplayer = gets.chomp
 
     new_game = Game.new(nil, multiplayer, publish_date, last_played_at, nil)
-    author_options.select_author.add_item(new_game)
+
+    add_game_relations(author_options, genre_options, new_game)
+
     @game_list.push(new_game)
     puts 'Game Added!'
   end

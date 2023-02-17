@@ -60,7 +60,7 @@ class MainMenu
   end
 
   def add_game
-    @game_options.add_game(@author_options)
+    @game_options.add_game(@author_options, @genre_options)
     select_new_option
   end
 
