@@ -1,35 +1,33 @@
 require_relative './genre'
 
 class GenreLister
-  def initialize(genres)
-    @genres = genres
+  attr_writer :list_all_genres
+  attr_accessor :genres
+
+  def initialize
+    @genres = []
   end
 
   def list_all_genres
     if @genres.empty?
-      puts "\nNo genres added. Please add some genres."
+      puts "\nNo added genres!"
     else
       puts "\nExisting genres in the list:"
-      @genres.each do |genre|
-        puts "#{genre.id}. #{genre.name}"
+      @genres.each_with_index do |genre, index|
+        puts "#{index + 1}. #{genre.name}"
       end
     end
   end
 
   def select_genre
     list_all_genres
-    print "\nPlease select a genre by typing the right number: "
-
+    print "\nPlease select a genre by typing the corresponding number : "
     genre_input = gets.chomp.to_i
-    raise ArgumentError, 'Invalid genre input' unless (1..@genres.length).include?(genre_input)
-
+    if genre_input > @genres.length
+      print 'Please type correct number of genre'
+      genre_input = gets.chomp.to_i
+    end
     @genres[genre_input - 1]
-  end
-end
-
-class GenreCreator
-  def initialize(genres)
-    @genres = genres
   end
 
   def create_genre
@@ -37,36 +35,27 @@ class GenreCreator
     name = gets.chomp
     genre = Genre.new(name)
     @genres << genre
-    puts "#{genre.name} genre has been added."
     genre
-  end
-end
-
-class GenreOption
-  def initialize(genres)
-    @genres = genres
-    @genre_lister = GenreLister.new(@genres)
-    @genre_creator = GenreCreator.new(@genres)
   end
 
   def add_genre
     if @genres.empty?
-      puts 'No genres available. Adding a new genre.'
-      @genre_creator.create_genre
+      puts "\nAdd a genre for this item!"
+      create_genre
     else
-      puts "\nSelect a genre for this item or add a new one:"
-      puts '[1] Select from existing genres'
-      puts '[2] Add a new genre'
+      puts "\nSelect a genre for this item or add a new one: "
+      puts '[ 1 ] Select from existing genres'
+      puts '[ 2 ] Add a new genre'
 
       input = gets.chomp.to_i
 
       case input
       when 1
-        @genre_lister.select_genre
+        select_genre
       when 2
-        @genre_creator.create_genre
+        create_genre
       else
-        raise ArgumentError, 'Invalid input. Please enter 1 or 2.'
+        puts 'Please enter 1 or 2!'
       end
     end
   end
