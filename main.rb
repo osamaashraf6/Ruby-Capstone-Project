@@ -2,8 +2,8 @@ require 'io/console'
 require_relative './author_options'
 require_relative './game_options'
 require_relative './file_storage'
-require_relative './genre_option'
-require_relative 'music_option'
+# require_relative './genre_option'
+# require_relative 'music_option'
 class MainMenu
   def initialize
     ### Create the method named in the value of the hash to ask for
@@ -19,8 +19,8 @@ class MainMenu
     @game_options = GameOptions.new
     @author_options.author_list = FileStorage.load_data('author')
     @game_options.game_list = FileStorage.load_data('game')
-    @genre_options = GenreLister.new
-    @music_options = MusicModule.new
+    # @genre_options = GenreLister.new
+    # @music_options = MusicModule.new
   end
 
   def show_options
