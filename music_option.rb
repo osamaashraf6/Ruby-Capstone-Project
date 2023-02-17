@@ -19,9 +19,7 @@ class MusicOption
 
     music_album = MusicAlbum.new(nil, on_spotify, published_date, genre, nil)
 
-    ## 1
     @music_albums.push(music_album)
-    ## 1
 
     genre_options.select_genre.add_item(music_album)
 
