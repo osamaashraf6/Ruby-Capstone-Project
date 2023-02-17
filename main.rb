@@ -21,8 +21,15 @@ class MainMenu
     @music_options = MusicOption.new
     @author_options.author_list = FileStorage.load_data('author')
     @game_options.game_list = FileStorage.load_data('game')
-    @genre_options.list_all_genres = FileStorage.load_data('genre')
-    @music_options.music_albums = FileStorage.load_data('music')
+
+    ## 2
+    ## @genre_options.list_all_genres = FileStorage.load_data('genre')
+    ## FileStorage.save_data('genres', @genre_options.genres)
+    @genre_options.genres = FileStorage.load_data('genres')
+
+    ## 3
+    ## FileStorage.save_data('music_albums', @music_options.music_albums)
+    @music_options.music_albums = FileStorage.load_data('music_albums')
   end
 
   def show_options
@@ -35,11 +42,13 @@ class MainMenu
     end
   end
 
-  # def list_all_sources
-  #   pp @author_options
-  #   pp @game_options
-  #   select_new_option
-  # end
+  def list_all_sources
+    pp @author_options
+    pp @game_options
+    pp @genre_options
+    pp @music_options
+    select_new_option
+  end
 
   def list_all_genres
     @genre_options.list_all_genres

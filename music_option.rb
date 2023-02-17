@@ -18,6 +18,11 @@ class MusicOption
     genre = genre_options.add_genre
 
     music_album = MusicAlbum.new(nil, on_spotify, published_date, genre, nil)
+
+    ## 1
+    @music_albums.push(music_album)
+    ## 1
+
     genre_options.select_genre.add_item(music_album)
 
     puts "Album of genre '#{genre.name}' and publish date '#{published_date}' added successfully!"
