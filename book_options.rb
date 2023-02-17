@@ -1,33 +1,34 @@
-require_relative './game'
+require_relative './book'
 
-class GameOptions
-  attr_accessor :game_list
+class BookOptions
+  attr_accessor :book_list
 
   def initialize
-    @game_list = []
+    @book_list = []
   end
 
-  def add_game(author_options)
+  def add_book(label_options)
     print 'Publish date: '
     publish_date = gets.chomp
-    print 'Last played at: '
-    last_played_at = gets.chomp
-    print 'Multiplayer [true/false]: '
-    multiplayer = gets.chomp
+    print 'Publisher: '
+    publisher = gets.chomp
+    print 'Cover state [good/bad]: '
+    cover_state = gets.chomp
 
-    new_game = Game.new(nil, multiplayer, publish_date, last_played_at, nil)
-    author_options.select_author.add_item(new_game)
-    @game_list.push(new_game)
-    puts 'Game Added!'
+    new_book = Book.new(nil, publisher, publish_date, cover_state, nil)
+    label_options.select_label.add_item(new_book)
+    @book_list.push(new_book)
+    puts 'Book Added!'
   end
 
-  def list_of_games
-    if @game_list.empty?
-      puts 'No added games!'
+  def list_of_books
+    if @book_list.empty?
+      puts 'No added books!'
       false
     else
-      @game_list.each do |game|
-        puts "[#{game.id}] - **LABEL** - **GENRE** - Author: #{game.author.first_name} #{game.author.last_name}"
+      @book_list.each do |book|
+        ## puts "[#{book.id}] - **LABEL** - **GENRE** - Author: #{book.author.first_name} #{book.author.last_name}"
+        puts "[#{book.id}] - **LABEL** - **GENRE** - **AUTHOR**"
       end
     end
   end
