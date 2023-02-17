@@ -11,11 +11,10 @@ class MainMenu
     ### Create the method named in the value of the hash to ask for
     ### particular option parameters and instance external classes
     @options = { '1' => 'list_all_books', '2' => 'list_music_albums',
-                 '3' => 'list_all_movies', '4' => 'list_of_games',
-                 '5' => 'list_all_genres', '6' => 'list_all_labels',
-                 '7' => 'list_all_authors', '8' => 'list_all_sources',
+                 '4' => 'list_of_games', '5' => 'list_all_genres',
+                 '6' => 'list_all_labels', '7' => 'list_all_authors',
                  'B' => 'add_book', 'A' => 'add_music_album',
-                 'M' => 'add_movie', 'G' => 'add_game', 'X' => 'exit_app' }
+                 'G' => 'add_game', 'X' => 'exit_app' }
 
     @author_options = AuthorOptions.new
     @game_options = GameOptions.new
