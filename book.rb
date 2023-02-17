@@ -27,6 +27,3 @@ class Book < Item
     new(object['id'], object['publisher'], object['publish_date'], object['cover_state'], object['label'])
   end
 end
-
-a = Book.new(nil, 'luis', '17/02/1976', 'bad', nil)
-pp a.can_be_archived?
