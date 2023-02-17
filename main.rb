@@ -4,6 +4,8 @@ require_relative './game_options'
 require_relative './file_storage'
 require_relative './genre_option'
 require_relative './music_option'
+require_relative './book_options'
+require_relative './label_options'
 class MainMenu
   def initialize
     ### Create the method named in the value of the hash to ask for
@@ -19,10 +21,14 @@ class MainMenu
     @game_options = GameOptions.new
     @genre_options = GenreLister.new
     @music_options = MusicOption.new
+    @book_options = BookOptions.new
+    @label_options = LabelOptions.new
     @author_options.author_list = FileStorage.load_data('author')
     @game_options.game_list = FileStorage.load_data('game')
     @genre_options.genres = FileStorage.load_data('genres')
     @music_options.music_albums = FileStorage.load_data('music_albums')
+    @book_options.book_list = FileStorage.load_data('book')
+    @label_options.label_list = FileStorage.load_data('label')
   end
 
   def show_options
@@ -35,7 +41,13 @@ class MainMenu
     end
   end
 
-  def list_all_sources
+  def list_all_labels
+    @label_options.list_all_labels
+    select_new_option
+  end
+
+  def list_all_books
+    @book_options.list_of_books
     select_new_option
   end
 
@@ -69,6 +81,11 @@ class MainMenu
     select_new_option
   end
 
+  def add_book
+    @book_options.add_book(@label_options)
+    select_new_option
+  end
+
   def choose_valid_option
     loop do
       print 'Please choose an option by entering the number/letter: '
@@ -84,6 +101,8 @@ class MainMenu
     FileStorage.save_data('music_albums', @music_options.music_albums)
     FileStorage.save_data('game', @game_options.game_list)
     FileStorage.save_data('author', @author_options.author_list)
+    FileStorage.save_data('book', @book_options.book_list)
+    FileStorage.save_data('label', @label_options.label_list)
     exit(0)
   end
 
