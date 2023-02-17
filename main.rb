@@ -46,16 +46,6 @@ class MainMenu
     select_new_option
   end
 
-  def list_all_sources
-    pp @author_options
-    pp @book_options
-    pp @game_options
-    pp @genre_options
-    pp @music_options
-    pp @label_options
-    select_new_option
-  end
-
   def list_all_books
     @book_options.list_of_books
     select_new_option
